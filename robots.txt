@@ -1,0 +1,3 @@
+Sitemap: https://aliofficialpk.github.io/aasfore-authority-architect/sitemap.xml
+User-agent: *
+Allow: /

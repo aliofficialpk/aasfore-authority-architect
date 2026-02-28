@@ -1,0 +1,513 @@
+:root {
+    --primary-blue: #003366;
+    --text-charcoal: #1a1a1a;
+    --bg-white: #ffffff;
+    --light-gray: #f4f4f4;
+    --accent-gray: #dddddd;
+    --transition-speed: 0.4s;
+    --max-width: 1200px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-bold: 0 20px 40px rgba(0, 31, 63, 0.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.reveal {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+}
+
+.fade-up {
+    transform: translateY(30px);
+}
+
+.fade-up.visible {
+    transform: translateY(0);
+}
+
+.slide-left {
+    transform: translateX(-30px);
+}
+
+.slide-left.visible {
+    transform: translateX(0);
+}
+
+.scale-in {
+    transform: scale(0.95);
+}
+
+.scale-in.visible {
+    transform: scale(1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-charcoal);
+    background-color: var(--bg-white);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-speed);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--bg-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-blue);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-charcoal);
+    border-radius: 3px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--primary-blue);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--primary-blue);
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: var(--transition-speed);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--primary-blue);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-blue);
+}
+
+.btn-outline:hover {
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-title h2 {
+    font-size: 2.25rem;
+    color: var(--primary-blue);
+}
+
+.section-title p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid Layouts */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Cards */
+.card {
+    background: #fff;
+    padding: 2.5rem;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    transition: var(--transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-bold);
+}
+
+.card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-links h4 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul li a {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.footer-links ul li a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-bold);
+    transition: all var(--transition-speed) ease;
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 25px 45px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-button:active {
+    transform: scale(0.95);
+}
+
+/* Floating LinkedIn Button */
+.linkedin-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 6rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0077B5 0%, #0066A1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-bold);
+    transition: all var(--transition-speed) ease;
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+}
+
+.linkedin-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.linkedin-button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 119, 181, 0.35);
+}
+
+.linkedin-button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .linkedin-button {
+        bottom: 1.5rem;
+        right: 5rem;
+        width: 56px;
+        height: 56px;
+    }
+
+    .linkedin-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .whatsapp-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-button {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .linkedin-button {
+        bottom: 5.2rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    .linkedin-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .whatsapp-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
